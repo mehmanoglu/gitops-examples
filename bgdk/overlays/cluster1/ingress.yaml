@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: bgd-ingress
+  namespace: bgd
+spec:
+  rules:
+    - host: bgd-bgd.apps.ocp-prod1.gps.local
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: bgd
+              servicePort: 8080
